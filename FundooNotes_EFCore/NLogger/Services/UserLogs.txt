@@ -1,0 +1,2 @@
+﻿
+2022-07-14 23:21:28.7933|INFO|NLogger.Services.LoggerManager|User Registerd Email : Suresh@gmail.com

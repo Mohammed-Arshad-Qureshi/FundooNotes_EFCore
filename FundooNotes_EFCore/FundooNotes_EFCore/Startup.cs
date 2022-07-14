@@ -12,6 +12,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using NLogger.Interface;
+using NLogger.Services;
 using RepositoryLayer;
 using RepositoryLayer.Interface;
 using RepositoryLayer.Services;
@@ -81,6 +83,7 @@ namespace FundooNotes_EFCore
                     { jwtSecurityScheme, Array.Empty<string>() },
                });
                });
+            services.AddSingleton<ILoggerManager, LoggerManager>();
             services.AddTransient<IUserRL, UserRL>();
             services.AddTransient<IUserBL, UserBL>();
         }
