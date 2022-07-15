@@ -79,5 +79,21 @@ namespace FundooNotes_EFCore.Controllers
                 throw ex;
             }
         }
+
+        [HttpPost("ForgetUser/{email}")]
+        public IActionResult ForgetUser(string email)
+        {
+            try
+            {
+                bool isExist = this.userBL.ForgetPasswordUser(email);
+                if (isExist) return Ok(new { success = true, message = $"Reset Link sent to Eamil : {email}" });
+                else return BadRequest(new { success = false, message = $"No user Exist with Email : {email}" });
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError($"User cred Failed : {email}");
+                throw ex;
+            }
+        }
     }
 }
