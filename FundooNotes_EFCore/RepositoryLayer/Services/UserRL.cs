@@ -1,8 +1,15 @@
 ﻿using DataBaseLayer.UserModels;
+using Experimental.System.Messaging;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using RepositoryLayer.Interface;
 using RepositoryLayer.Services.Entities;
 using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Security.Claims;
+using System.Text;
 
 namespace RepositoryLayer.Services
 {
@@ -30,6 +37,18 @@ namespace RepositoryLayer.Services
                 user.ModifiedDate = DateTime.Now;
                 this.fundooContext.Users.Add(user);
                 this.fundooContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<User> GetAllUsers()
+        {
+            try
+            {
+                return this.fundooContext.Users.ToList();
             }
             catch (Exception ex)
             {

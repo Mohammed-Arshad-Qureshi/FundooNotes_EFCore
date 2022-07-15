@@ -1,10 +1,15 @@
 ﻿using BusinessLayer.Interface;
 using DataBaseLayer.UserModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NLogger.Interface;
 using RepositoryLayer.Services;
+using RepositoryLayer.Services.Entities;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
 
 namespace FundooNotes_EFCore.Controllers
 {
@@ -13,13 +18,13 @@ namespace FundooNotes_EFCore.Controllers
     public class UserController : ControllerBase
     {
         private readonly FundooContext fundooContext;
-        private readonly IUserBL userBl;
+        private readonly IUserBL userBL;
         private readonly ILoggerManager logger;
 
         public UserController(FundooContext fundooContext, IUserBL userBL, ILoggerManager logger)
         {
             this.fundooContext = fundooContext;
-            this.userBl = userBL;
+            this.userBL = userBL;
             this.logger = logger;
         }
 
@@ -29,12 +34,27 @@ namespace FundooNotes_EFCore.Controllers
             try
             {
                 this.logger.LogInfo($"User Registerd Email : {userModel.Email}");
-                this.userBl.AddUser(userModel);
+                this.userBL.AddUser(userModel);
                 return this.Ok(new { success = true, message = "User Created Successfully" });
             }
             catch (Exception ex)
             {
                 this.logger.LogError($"User Registration Failed : {userModel.Email}");
+                throw ex;
+            }
+        }
+
+        [HttpGet("GetAllUsers")]
+        public IActionResult GetAllUsers()
+        {
+            try
+            {
+                List<User> getusers = new List<User>();
+                getusers = this.userBL.GetAllUsers();
+                return Ok(new { success = false, message = "GetAll users Fetch Successfully" ,data=getusers });
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }
