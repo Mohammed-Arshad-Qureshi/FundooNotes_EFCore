@@ -95,5 +95,33 @@ namespace FundooNotes_EFCore.Controllers
                 throw ex;
             }
         }
+
+        [Authorize]
+        [HttpPut("ResetUser")]
+        public IActionResult ResetUser(PasswordModel passwordModel)
+        {
+            try
+            {
+                if (passwordModel.Password != passwordModel.CPassword)
+                {
+                    return this.BadRequest(new { success = false, message = "New Password and Confirm Password are not equal." });
+                }
+
+                var identity = User.Identity as ClaimsIdentity;
+                if (identity != null)
+                {
+                    IEnumerable<Claim> claims = identity.Claims;
+                    var email = claims.Where(p => p.Type == @"Email").FirstOrDefault()?.Value;
+                    this.userBL.ResetPassoword(email, passwordModel);
+                    return this.Ok(new { success = true, message = "Password Changed Sucessfully", email = $"{email}" });
+                }
+
+                return this.BadRequest(new { success = false, message = "Password Changed Unsuccessful" });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

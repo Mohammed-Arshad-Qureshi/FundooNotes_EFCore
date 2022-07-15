@@ -60,7 +60,7 @@ namespace RepositoryLayer.Services
         {
             try
             {
-                var user = fundooContext.Users.Where(x => x.Email == loginUser.Email && x.password == loginUser.Password).FirstOrDefault();
+                var user = this.fundooContext.Users.Where(x => x.Email == loginUser.Email && x.password == loginUser.Password).FirstOrDefault();
 
                 if (user == null)
                 {
@@ -110,7 +110,7 @@ namespace RepositoryLayer.Services
         {
             try
             {
-                var user = fundooContext.Users.Where(x => x.Email == email).FirstOrDefault();
+                var user = this.fundooContext.Users.Where(x => x.Email == email).FirstOrDefault();
                 if (user == null)
                 {
                     return false;
@@ -145,8 +145,8 @@ namespace RepositoryLayer.Services
             {
                 throw ex;
             }
-
         }
+
         private void msmqQueue_ReceiveCompleted(object sender, ReceiveCompletedEventArgs e)
         {
             try
@@ -190,6 +190,30 @@ namespace RepositoryLayer.Services
                 };
                 var token = tokenHandler.CreateToken(tokenDescriptor);
                 return tokenHandler.WriteToken(token);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool ResetPassoword(string email, PasswordModel modelPassword)
+        {
+            try
+            {
+                var user = this.fundooContext.Users.Where(x => x.Email == email).FirstOrDefault();
+                if (user == null)
+                {
+                    return false;
+                }
+
+                if (modelPassword.Password == modelPassword.CPassword)
+                {
+                    user.password = modelPassword.Password;
+                    this.fundooContext.SaveChanges();
+                }
+
+                return true;
             }
             catch (Exception ex)
             {
