@@ -27,6 +27,7 @@ namespace BusinessLayer.Services
                 throw ex;
             }
         }
+
         public List<User> GetAllUsers()
         {
             try
@@ -35,7 +36,18 @@ namespace BusinessLayer.Services
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
 
+        public string LoginUser(UserLoginModel loginUser)
+        {
+            try
+            {
+                return this.userRL.LoginUser(loginUser);
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }

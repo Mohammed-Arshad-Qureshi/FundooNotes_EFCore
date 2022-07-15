@@ -2,3 +2,8 @@
 2022-07-14 23:21:28.7933|INFO|NLogger.Services.LoggerManager|User Registerd Email : Suresh@gmail.com
 2022-07-15 12:14:00.6713|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
 2022-07-15 14:23:10.6114|INFO|NLogger.Services.LoggerManager|User Registerd Email : salman@gmail.com
+2022-07-15 14:34:48.8067|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-15 14:35:53.4380|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-15 14:36:08.4517|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-15 14:40:16.2244|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-15 14:40:32.1716|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com

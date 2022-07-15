@@ -11,5 +11,7 @@ namespace RepositoryLayer.Interface
         public void AddUser(UserModel userModel);
 
         public List<User> GetAllUsers();
+
+        public string LoginUser(UserLoginModel loginUser);
     }
 }

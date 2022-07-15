@@ -58,5 +58,26 @@ namespace FundooNotes_EFCore.Controllers
                 throw ex;
             }
         }
+
+        [HttpPost("LoginUser")]
+        public IActionResult LoginUser(UserLoginModel userModel)
+        {
+            try
+            {
+                this.logger.LogInfo($"User cred Email : {userModel.Email}");
+                string token = this.userBL.LoginUser(userModel);
+                if (token == null)
+                {
+                    return this.BadRequest(new { success = false, message = "Enter Valid Email and Password" });
+                }
+
+                return this.Ok(new { success = true, message = "User Login Successfully", data = token });
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError($"User cred Failed : {userModel.Email}");
+                throw ex;
+            }
+        }
     }
 }
