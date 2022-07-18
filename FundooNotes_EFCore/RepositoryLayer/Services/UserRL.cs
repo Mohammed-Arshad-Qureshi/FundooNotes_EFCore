@@ -61,7 +61,6 @@ namespace RepositoryLayer.Services
             try
             {
                 var user = this.fundooContext.Users.Where(x => x.Email == loginUser.Email && x.password == loginUser.Password).FirstOrDefault();
-
                 if (user == null)
                 {
                     return null;

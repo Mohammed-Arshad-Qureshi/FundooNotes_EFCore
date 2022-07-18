@@ -7,3 +7,29 @@
 2022-07-15 14:36:08.4517|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
 2022-07-15 14:40:16.2244|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
 2022-07-15 14:40:32.1716|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-15 15:21:44.7107|INFO|NLogger.Services.LoggerManager|User Registerd Email : maseha@gmail.com
+2022-07-15 15:22:11.2184|INFO|NLogger.Services.LoggerManager|User cred Email : maseha@gmail.com
+2022-07-15 22:35:47.8405|INFO|NLogger.Services.LoggerManager|User Registerd Email : qureshi@gmail.com
+2022-07-15 22:41:51.4191|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-15 22:45:28.5843|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-18 16:06:42.0085|INFO|NLogger.Services.LoggerManager|User Registerd Email : sample@gmail.com
+2022-07-18 17:18:48.7436|INFO|NLogger.Services.LoggerManager|User Registerd Email : Arshad@gmail.com
+2022-07-18 17:20:08.9345|INFO|NLogger.Services.LoggerManager|User Registerd Email : suresh@gmail.com
+2022-07-18 17:21:57.3990|INFO|NLogger.Services.LoggerManager|User cred Email : Arshad@gmail.com
+2022-07-18 17:23:11.1605|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-07-18 17:23:19.9127|INFO|NLogger.Services.LoggerManager|All Notes Retrieved Successfully UserId = UserId: 1
+2022-07-18 17:23:59.0497|INFO|NLogger.Services.LoggerManager|All Notes Retrieved Successfully UserId = UserId: 1
+2022-07-18 17:24:04.6959|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-07-18 17:24:08.4078|INFO|NLogger.Services.LoggerManager|All Notes Retrieved Successfully UserId = UserId: 1
+2022-07-18 17:24:44.3283|INFO|NLogger.Services.LoggerManager|User cred Email : suresh@gmail.com
+2022-07-18 17:25:04.6533|INFO|NLogger.Services.LoggerManager|All Notes Retrieved Successfully UserId = UserId: 2
+2022-07-18 17:25:55.3402|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 2
+2022-07-18 17:26:20.8450|INFO|NLogger.Services.LoggerManager|All Notes Retrieved Successfully UserId = UserId: 2
+2022-07-18 17:43:08.0330|INFO|NLogger.Services.LoggerManager|No Notes Exists At Moment!! UserId = UserId: 2
+2022-07-18 17:44:42.0921|INFO|NLogger.Services.LoggerManager|User Registerd Email : ravi@gmail.com
+2022-07-18 17:46:01.4297|INFO|NLogger.Services.LoggerManager|User cred Email : ravi@gmail.com
+2022-07-18 17:47:12.6382|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 3
+2022-07-18 17:47:49.5232|INFO|NLogger.Services.LoggerManager|All Notes Retrieved Successfully UserId = UserId: 3
+2022-07-18 18:25:33.6525|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-18 18:53:54.7546|INFO|NLogger.Services.LoggerManager|User cred Email : Arshad@gmail.com
+2022-07-18 18:54:40.4137|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1

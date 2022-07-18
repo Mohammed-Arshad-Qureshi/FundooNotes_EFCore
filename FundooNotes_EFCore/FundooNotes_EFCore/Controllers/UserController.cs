@@ -33,9 +33,15 @@ namespace FundooNotes_EFCore.Controllers
         {
             try
             {
-                this.logger.LogInfo($"User Registerd Email : {userModel.Email}");
-                this.userBL.AddUser(userModel);
-                return this.Ok(new { success = true, message = "User Created Successfully" });
+                if (userModel.FirstName != "Firstname" && userModel.LastName != "Lastname" && userModel.Email != "sample@gmail.com" && userModel.Password != "Password@123")
+                {
+                    this.logger.LogInfo($"User Registerd Email : {userModel.Email}");
+                    this.userBL.AddUser(userModel);
+                    return this.Ok(new { success = true, message = "User Created Successfully" });
+                }
+
+                return this.BadRequest(new { success = false, message = "Entered Details are similar to Default one" });
+
             }
             catch (Exception ex)
             {
@@ -51,7 +57,7 @@ namespace FundooNotes_EFCore.Controllers
             {
                 List<User> getusers = new List<User>();
                 getusers = this.userBL.GetAllUsers();
-                return Ok(new { success = false, message = "GetAll users Fetch Successfully" ,data=getusers });
+                return this.Ok(new { success = false, message = "GetAll users Fetch Successfully" ,data=getusers });
             }
             catch (Exception ex)
             {
