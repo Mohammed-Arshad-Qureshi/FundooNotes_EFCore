@@ -52,5 +52,28 @@ namespace FundooNotes_EFCore.Controllers
 
             return this.BadRequest(new { success = false, message = "Entered Details are same as Default one" });
         }
+
+        [HttpGet("GetALlNotes")]
+        public async Task<IActionResult> GetAllNotes()
+        {
+            try
+            {
+                var userId = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
+                int UserId = int.Parse(userId.Value);
+                var NoteData = await this.noteBL.GetAllNote(UserId);
+                if (NoteData.Count == 0)
+                {
+                    this.logger.LogInfo($"No Notes Exists At Moment!! UserId = {UserId}");
+                    return this.BadRequest(new { sucess = false, Message = "Currently You Don't Have Any Notes!!" });
+                }
+
+                this.logger.LogInfo($"All Notes Retrieved Successfully UserId = {UserId}");
+                return this.Ok(new { sucess = true, Message = "Notes Data Retrieved successfully...", data = NoteData });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

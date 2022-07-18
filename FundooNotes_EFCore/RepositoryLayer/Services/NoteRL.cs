@@ -41,5 +41,33 @@ namespace RepositoryLayer.Services
                 throw ex;
             }
         }
+
+        public async Task<List<NoteResponseModel>> GetAllNote(int UserId)
+        {
+            try
+            {
+                return await fundooContext.Users
+               .Where(u => u.UserId == UserId)
+               .Join(fundooContext.Notes,
+               u => u.UserId,
+               n => n.UserId,
+               (u, n) => new NoteResponseModel
+               {
+                   NoteId = n.NoteId,
+                   UserId = u.UserId,
+                   Title = n.Title,
+                   Description = n.Description,
+                   Bgcolor = n.Bgcolor,
+                   Firstname = u.FirstName,
+                   Lasttname = u.LastName,
+                   Email = u.Email,
+                   CreatedDate = u.CreatedDate,
+               }).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
