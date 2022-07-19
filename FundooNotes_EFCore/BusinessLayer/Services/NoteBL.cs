@@ -42,5 +42,18 @@ namespace BusinessLayer.Services
                 throw ex;
             }
         }
+
+        public Task<bool> UpdateNote(int userId, int noteId, NoteUpdateModel updateModel)
+        {
+            try
+            {
+                return this.noteRL.UpdateNote(userId, noteId, updateModel);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

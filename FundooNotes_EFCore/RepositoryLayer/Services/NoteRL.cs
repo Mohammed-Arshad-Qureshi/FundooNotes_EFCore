@@ -46,26 +46,60 @@ namespace RepositoryLayer.Services
         {
             try
             {
-                return await fundooContext.Users
-               .Where(u => u.UserId == UserId)
-               .Join(fundooContext.Notes,
-               u => u.UserId,
-               n => n.UserId,
-               (u, n) => new NoteResponseModel
-               {
-                   NoteId = n.NoteId,
-                   UserId = u.UserId,
-                   Title = n.Title,
-                   Description = n.Description,
-                   Bgcolor = n.Bgcolor,
-                   Firstname = u.FirstName,
-                   Lasttname = u.LastName,
-                   Email = u.Email,
-                   CreatedDate = u.CreatedDate,
-               }).ToListAsync();
+                return await this.fundooContext.Notes
+                .Where(n => n.UserId == UserId && n.IsTrash == false)
+                .Join(fundooContext.Users,
+                n => n.UserId,
+                u => u.UserId,
+                (n, u) => new NoteResponseModel
+                {
+                    NoteId = n.NoteId,
+                    UserId = n.UserId,
+                    Title = n.Title,
+                    Description = n.Description,
+                    Bgcolor = n.Bgcolor,
+                    Firstname = u.FirstName,
+                    Lasttname = u.LastName,
+                    Email = u.Email,
+                    CreatedDate = u.CreatedDate,
+                }).ToListAsync();
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
+
+        public Task<bool> UpdateNote(int userId, int noteId, NoteUpdateModel updateModel)
+        {
+
+            var flag = true;
+
+            try
+            {
+                var result = this.fundooContext.Notes.Where(x => x.NoteId == noteId && x.UserId == userId).FirstOrDefault();
+
+                if (result == null || result.IsTrash == true)
+                {
+                    flag = false;
+                    return Task.FromResult(flag);
+                }
+
+                result.Title = updateModel.Title;
+                result.Description = updateModel.Description;
+                result.Bgcolor = updateModel.Bgcolor;
+                result.IsPin = updateModel.IsPin;
+                result.IsArchive = updateModel.IsArchive;
+                result.IsTrash = updateModel.IsTrash;
+                result.ModifiedDate = DateTime.Now;
+                this.fundooContext.Notes.Update(result);
+                this.fundooContext.SaveChanges();
+                return Task.FromResult(flag);
+
+            }
+            catch (Exception ex)
+            {
+
                 throw ex;
             }
         }

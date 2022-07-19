@@ -12,5 +12,7 @@ namespace BusinessLayer.Interface
 
         Task<List<NoteResponseModel>> GetAllNote(int UserId);
 
+        public Task<bool> UpdateNote(int userId, int noteId, NoteUpdateModel updateModel);
+
     }
 }

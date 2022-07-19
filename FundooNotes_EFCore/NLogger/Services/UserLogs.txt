@@ -33,3 +33,34 @@
 2022-07-18 18:25:33.6525|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
 2022-07-18 18:53:54.7546|INFO|NLogger.Services.LoggerManager|User cred Email : Arshad@gmail.com
 2022-07-18 18:54:40.4137|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-07-18 19:09:15.4155|INFO|NLogger.Services.LoggerManager|User cred Email : string
+2022-07-18 19:09:35.1606|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.cok
+2022-07-18 19:09:39.7571|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.cok
+2022-07-18 19:09:48.7655|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-18 19:10:08.8980|INFO|NLogger.Services.LoggerManager|All Notes Retrieved Successfully UserId = 1
+2022-07-18 19:10:21.8076|INFO|NLogger.Services.LoggerManager|All Notes Retrieved Successfully UserId = 1
+2022-07-18 19:11:56.8886|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-07-18 19:12:10.9255|INFO|NLogger.Services.LoggerManager|All Notes Retrieved Successfully UserId = 1
+2022-07-18 19:12:40.4199|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-07-18 19:12:43.4187|INFO|NLogger.Services.LoggerManager|All Notes Retrieved Successfully UserId = 1
+2022-07-19 11:01:54.4934|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-19 11:02:23.8519|INFO|NLogger.Services.LoggerManager|All Notes Retrieved Successfully UserId = 1
+2022-07-19 11:03:47.8137|INFO|NLogger.Services.LoggerManager|All Notes Retrieved Successfully UserId = 1
+2022-07-19 16:26:07.9645|INFO|NLogger.Services.LoggerManager|User Registerd Email : Arshad@gmail.com
+2022-07-19 16:26:25.7209|INFO|NLogger.Services.LoggerManager|User Registerd Email : salman@gmail.com
+2022-07-19 16:28:02.1261|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-19 16:29:47.1846|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-07-19 16:30:58.0871|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
+2022-07-19 16:31:13.5182|INFO|NLogger.Services.LoggerManager|No Notes Exists At Moment!! UserId = 2
+2022-07-19 16:31:49.1605|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 2
+2022-07-19 16:32:11.7499|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 2
+2022-07-19 17:16:28.4004|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
+2022-07-19 17:32:08.6718|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 2
+2022-07-19 17:57:59.9480|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
+2022-07-19 19:00:01.1698|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-19 19:00:26.3808|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
+2022-07-19 19:11:32.7203|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
+2022-07-19 19:54:17.7492|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
+2022-07-19 19:56:57.3087|INFO|NLogger.Services.LoggerManager|No Notes Exists At Moment!! UserId = 2
+2022-07-19 19:57:27.6979|INFO|NLogger.Services.LoggerManager|No Notes Exists At Moment!! UserId = 2
+2022-07-19 20:20:46.0961|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com

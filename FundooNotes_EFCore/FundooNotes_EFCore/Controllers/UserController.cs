@@ -57,7 +57,12 @@ namespace FundooNotes_EFCore.Controllers
             {
                 List<User> getusers = new List<User>();
                 getusers = this.userBL.GetAllUsers();
-                return this.Ok(new { success = false, message = "GetAll users Fetch Successfully" ,data=getusers });
+                if(getusers.Count <= 0)
+                {
+                    return this.BadRequest(new { success = false, message = "Currently No users are present" });
+                }
+
+                return this.Ok(new { success = true, message = "GetAll users Fetch Successfully" ,data=getusers });
             }
             catch (Exception ex)
             {

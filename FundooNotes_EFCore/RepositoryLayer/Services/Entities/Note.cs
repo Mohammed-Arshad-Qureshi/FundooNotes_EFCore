@@ -19,7 +19,7 @@ namespace RepositoryLayer.Services.Entities
         public string Bgcolor { get; set; }
 
         [Required]
-        [ForeignKey("Users")]
+        [ForeignKey("User")]
         public int UserId { get; set; }
 
         public bool IsPin { get; set; }
