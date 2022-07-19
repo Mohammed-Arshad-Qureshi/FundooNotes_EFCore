@@ -127,5 +127,37 @@ namespace RepositoryLayer.Services
                 throw ex;
             }
         }
+
+        public async Task<bool> ArchiveNote(int userId, int noteId)
+        {
+            try
+            {
+                var flag = true;
+                var note = this.fundooContext.Notes.Where(x => x.UserId == userId && x.NoteId == noteId).FirstOrDefault();
+                if(note != null && note.IsTrash == false)
+                {
+                    if(note.IsArchive == false)
+                    {
+                        note.IsArchive = true;
+                    }
+                    else
+                    {
+                        note.IsArchive = false;
+                        flag = false;
+                    }
+
+                    this.fundooContext.Notes.Update(note);
+                    await this.fundooContext.SaveChangesAsync();
+                    return await Task.FromResult(flag);
+                }
+
+                return await Task.FromResult(!flag);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

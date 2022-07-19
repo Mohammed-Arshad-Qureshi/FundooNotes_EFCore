@@ -68,5 +68,18 @@ namespace BusinessLayer.Services
                 throw ex;
             }
         }
+
+        public async Task<bool> ArchiveNote(int userId, int noteId)
+        {
+            try
+            {
+                return await this.noteRL.ArchiveNote(userId, noteId);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
