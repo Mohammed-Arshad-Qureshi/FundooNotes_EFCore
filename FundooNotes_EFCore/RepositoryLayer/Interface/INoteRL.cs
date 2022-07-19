@@ -17,5 +17,7 @@ namespace RepositoryLayer.Interface
         Task<bool> DeleteNote(int userId, int noteId);
 
         Task<bool> ArchiveNote(int userId, int noteId);
+
+        Task<bool> PinNote(int userId, int noteId);
     }
 }

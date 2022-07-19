@@ -69,3 +69,4 @@
 2022-07-19 20:56:16.2741|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
 2022-07-19 21:22:31.8998|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
 2022-07-19 21:38:02.0616|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
+2022-07-19 21:53:24.3132|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
