@@ -106,5 +106,27 @@ namespace FundooNotes_EFCore.Controllers
                 throw ex;
             }
         }
+
+        [HttpDelete("DeleteNote/{noteId}")]
+        public async Task<IActionResult> GetAllNotes(int noteId)
+        {
+            try
+            {
+                var userId = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
+                int UserId = int.Parse(userId.Value);
+                bool result = await this.noteBL.DeleteNote(UserId, noteId);
+                if (result)
+                {
+                    return this.Ok(new { sucess = true, Message = "Notes Deleted successfully..."});
+                }
+
+                return this.BadRequest(new { sucess = false, Message = $"Note not found for NoteId : {noteId}"});
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

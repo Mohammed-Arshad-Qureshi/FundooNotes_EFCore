@@ -64,3 +64,6 @@
 2022-07-19 19:56:57.3087|INFO|NLogger.Services.LoggerManager|No Notes Exists At Moment!! UserId = 2
 2022-07-19 19:57:27.6979|INFO|NLogger.Services.LoggerManager|No Notes Exists At Moment!! UserId = 2
 2022-07-19 20:20:46.0961|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
+2022-07-19 20:55:46.6260|INFO|NLogger.Services.LoggerManager|User cred Email : salaman@gmail.com
+2022-07-19 20:56:03.3310|INFO|NLogger.Services.LoggerManager|User cred Email : salaman@gmail.com
+2022-07-19 20:56:16.2741|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com

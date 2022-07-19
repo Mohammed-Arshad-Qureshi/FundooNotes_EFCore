@@ -70,7 +70,7 @@ namespace RepositoryLayer.Services
             }
         }
 
-        public Task<bool> UpdateNote(int userId, int noteId, NoteUpdateModel updateModel)
+        public async Task<bool> UpdateNote(int userId, int noteId, NoteUpdateModel updateModel)
         {
 
             var flag = true;
@@ -82,7 +82,7 @@ namespace RepositoryLayer.Services
                 if (result == null || result.IsTrash == true)
                 {
                     flag = false;
-                    return Task.FromResult(flag);
+                    return await Task.FromResult(flag);
                 }
 
                 result.Title = updateModel.Title;
@@ -93,9 +93,33 @@ namespace RepositoryLayer.Services
                 result.IsTrash = updateModel.IsTrash;
                 result.ModifiedDate = DateTime.Now;
                 this.fundooContext.Notes.Update(result);
-                this.fundooContext.SaveChanges();
-                return Task.FromResult(flag);
+                await this.fundooContext.SaveChangesAsync();
+                return await Task.FromResult(flag);
 
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public async Task<bool> DeleteNote(int userId, int noteId)
+        {
+            var flag = false;
+            try
+            {
+                var result = this.fundooContext.Notes.Where(x => x.NoteId == noteId && x.UserId == userId).FirstOrDefault();
+                if(result != null)
+                {
+                    flag = true;
+                    result.IsTrash = true;
+                    this.fundooContext.Notes.Update(result);
+                    await this.fundooContext.SaveChangesAsync();
+                    return await Task.FromResult(flag);
+                }
+
+                return await Task.FromResult(flag);
             }
             catch (Exception ex)
             {

@@ -12,9 +12,8 @@ namespace RepositoryLayer.Interface
 
         Task<List<NoteResponseModel>> GetAllNote(int UserId);
 
-        public Task<bool> UpdateNote(int userId, int noteId, NoteUpdateModel updateModel);
+        Task<bool> UpdateNote(int userId, int noteId, NoteUpdateModel updateModel);
 
-
-
+        Task<bool> DeleteNote(int userId, int noteId);
     }
 }
