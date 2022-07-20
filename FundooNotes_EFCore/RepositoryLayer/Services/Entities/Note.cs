@@ -18,10 +18,6 @@ namespace RepositoryLayer.Services.Entities
 
         public string Bgcolor { get; set; }
 
-        [Required]
-        [ForeignKey("User")]
-        public int UserId { get; set; }
-
         public bool IsPin { get; set; }
 
         public bool IsArchive { get; set; }
@@ -35,5 +31,13 @@ namespace RepositoryLayer.Services.Entities
         public DateTime Remainder { get; set; }
 
         public DateTime ModifiedDate { get; set; }
+
+        [Required]
+        [ForeignKey("User")]
+        public virtual int UserId { get; set; }
+
+        public virtual User user { get; set; }
+
+
     }
 }

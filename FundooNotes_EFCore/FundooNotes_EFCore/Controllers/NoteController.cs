@@ -116,13 +116,17 @@ namespace FundooNotes_EFCore.Controllers
             {
                 var userId = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
                 int UserId = int.Parse(userId.Value);
+                var check = this.fundooContext.Notes.Where(x => x.NoteId == noteId && x.UserId == UserId).FirstOrDefault();
+                if(check == null)
+                    return this.BadRequest(new { sucess = false, Message = $"Note Not Found" });
+
                 bool result = await this.noteBL.DeleteNote(UserId, noteId);
                 if (result)
                 {
-                    return this.Ok(new { sucess = true, Message = "Notes Deleted successfully..."});
+                    return this.Ok(new { sucess = true, Message = "Notes Deleted successfully..." });
                 }
 
-                return this.BadRequest(new { sucess = false, Message = $"Note not found for NoteId : {noteId}"});
+                return this.BadRequest(new { sucess = true, Message = $"Note Restored Successfully : {noteId}" });
 
             }
             catch (Exception ex)
@@ -141,7 +145,7 @@ namespace FundooNotes_EFCore.Controllers
                 var userId = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
                 int UserId = int.Parse(userId.Value);
                 var res = this.fundooContext.Notes.Where(x => x.NoteId == NoteId).FirstOrDefault();
-                if(res == null)
+                if (res == null)
                 {
                     return this.BadRequest(new { sucess = false, Message = "Note not Found" });
 
@@ -182,6 +186,36 @@ namespace FundooNotes_EFCore.Controllers
                     return this.Ok(new { sucess = true, Message = "Note Pin SuccessFully !!" });
                 }
                 return this.Ok(new { sucess = true, Message = "Note UnPin SuccessFully !!" });
+
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError(ex.Message);
+                throw ex;
+            }
+        }
+
+        [HttpPut("Remainder/{NoteId}")]
+        public async Task<IActionResult> Remainder(int NoteId, NoteRemainderModel remainderModel)
+        {
+            try
+            {
+                var userId = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
+                int UserId = int.Parse(userId.Value);
+                var remainder = Convert.ToDateTime(remainderModel.Remainder);
+                var res = this.fundooContext.Notes.Where(x => x.NoteId == NoteId).FirstOrDefault();
+                if (res == null)
+                {
+                    return this.BadRequest(new { sucess = false, Message = "Note not Found" });
+
+                }
+
+                string result = await this.noteBL.Remainder(UserId, NoteId,remainder);
+                if (result != null)
+                {
+                    return this.Ok(new { sucess = true, Message = "Remainder set SuccessFully !! ", data = result });
+                }
+                return this.Ok(new { sucess = true, Message = "Remainder Deleted SuccessFully !!" });
 
             }
             catch (Exception ex)

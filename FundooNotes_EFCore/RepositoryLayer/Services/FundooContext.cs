@@ -15,11 +15,28 @@ namespace RepositoryLayer.Services
 
         public DbSet<Note> Notes { get; set; }
 
+        public DbSet<Label> Label { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>()
              .HasIndex(u => u.Email)
              .IsUnique();
+
+            //modelBuilder.Entity<Label>()
+            //   .HasKey(p => new { p.UserId, p.NoteId });
+
+            //modelBuilder.Entity<Label>()
+            //.HasOne(s => s.user)
+            //.WithMany()
+            //.HasForeignKey(s => s.UserId);
+
+
+            //modelBuilder.Entity<Label>()
+            //.HasOne(s => s.note)
+            //.WithMany()
+            //.HasForeignKey(s => s.NoteId);
         }
+
     }
 }

@@ -191,5 +191,32 @@ namespace RepositoryLayer.Services
                 throw ex;
             }
         }
+
+        public async Task<string> Remainder(int userId, int noteId, DateTime Remainder)
+        {
+            try
+            {
+                var note = this.fundooContext.Notes.Where(x => x.NoteId == noteId && x.UserId == userId).FirstOrDefault();
+                if (note != null && note.IsRemainder == false)
+                {
+                    note.Remainder = Remainder;
+                    note.IsRemainder = true;
+                    await this.fundooContext.SaveChangesAsync();
+                    return "Reminder Set Successfull for date:" + Remainder.Date + " And Time : " + Remainder.TimeOfDay;
+                }
+                else
+                {
+                    note.IsRemainder = false;
+                    await this.fundooContext.SaveChangesAsync();
+                    return null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

@@ -94,5 +94,19 @@ namespace BusinessLayer.Services
                 throw ex;
             }
         }
+
+        public async Task<string> Remainder(int userId, int noteId, DateTime Remainder)
+        {
+            try
+            {
+                return await this.noteRL.Remainder(userId,noteId, Remainder);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
     }
 }

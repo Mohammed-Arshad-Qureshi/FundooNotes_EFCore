@@ -70,3 +70,8 @@
 2022-07-19 21:22:31.8998|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
 2022-07-19 21:38:02.0616|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
 2022-07-19 21:53:24.3132|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
+2022-07-19 22:35:55.9137|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
+2022-07-20 15:49:15.6547|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
+2022-07-20 16:49:28.3446|INFO|NLogger.Services.LoggerManager|User Registerd Email : arshad@gmail.com
+2022-07-20 16:50:00.5303|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-20 16:50:39.8162|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
