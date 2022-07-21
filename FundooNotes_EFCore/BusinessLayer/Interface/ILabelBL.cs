@@ -14,6 +14,8 @@ namespace BusinessLayer.Interface
 
         Task<List<LabelModel>> GetLabelByNoteId(int UserId, int NoteId);
 
-        Task<bool> UpdateLable(int NoteId, string Labelname);
+        Task<bool> UpdateLable(int UserId,int LabelId, string Labelname);
+
+        Task<bool> DeleteLabel(int UserId,int LabelId);
     }
 }

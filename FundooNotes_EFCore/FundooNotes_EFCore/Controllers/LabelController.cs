@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Interface;
+using DataBaseLayer.LabelModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -27,7 +28,7 @@ namespace FundooNotes_EFCore.Controllers
         }
 
         [HttpPost("AddLabel/{NoteId}/{Labelname}")]
-        public async Task<IActionResult> AddNote(int NoteId, string Labelname)
+        public async Task<IActionResult> AddLabel(int NoteId, string Labelname)
         {
 
             try
@@ -47,7 +48,7 @@ namespace FundooNotes_EFCore.Controllers
                 {
                     await this.labelBL.AddLabel(UserId, NoteId, Labelname);
                     this.logger.LogInfo($"Label Cread Successfully with noted id = {NoteId}");
-                    return this.Ok(new { sucess = true, Message = "Note Created Successfully..." });
+                    return this.Ok(new { sucess = true, Message = "Label Created Successfully..." });
                 }
 
                 return this.BadRequest(new { sucess = false, Message = "Label with the name already Exists !!" });
@@ -66,8 +67,12 @@ namespace FundooNotes_EFCore.Controllers
             {
                 var userId = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
                 int UserId = int.Parse(userId.Value);
-                var result = await labelBL.GetAllLabels(UserId);
-                return this.Ok(new { sucess = true, Message = "Fetch all labels", data = result });
+                var result = await this.labelBL.GetAllLabels(UserId);
+                if (result.Count > 0)
+                {
+                    return this.Ok(new { sucess = true, Message = "Fetch all labels", data = result });
+                }
+                return this.Ok(new { sucess = true, Message = "No Labels Found", data = result });
 
             }
             catch (Exception ex)
@@ -78,18 +83,18 @@ namespace FundooNotes_EFCore.Controllers
         }
 
         [HttpGet("GetAllLabels/{NoteId}")]
-        public async Task<IActionResult> GetAllLabels(int NoteId)
+        public async Task<IActionResult> GetAllLabelsByNote(int NoteId)
         {
             try
             {
                 var userId = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
                 int UserId = int.Parse(userId.Value);
-                var result = await labelBL.GetLabelByNoteId(UserId, NoteId);
-                if (result != null)
+                var result = await this.labelBL.GetLabelByNoteId(UserId, NoteId);
+                if (result.Count > 0)
                 {
                     return this.Ok(new { sucess = true, Message = "Fetch all labels", data = result });
                 }
-                return this.BadRequest(new { sucess = false, Message = "Enter valid NoteId" });
+                return this.BadRequest(new { sucess = false, Message = "No Labels Found" });
 
             }
             catch (Exception ex)
@@ -99,24 +104,48 @@ namespace FundooNotes_EFCore.Controllers
             }
         }
 
-        [HttpPut("UpdateLabel/{NoteId}/{Labelname}")]
-        public async Task<IActionResult> UpdatedLabel(int NoteId, string Labelname)
+        [HttpPut("UpdateLabel/{LabelId}/{Labelname}")]
+        public async Task<IActionResult> UpdatedLabel(int LabelId, string Labelname)
         {
             try
             {
-                var label = this.fundooContext.Label.FirstOrDefault(x => x.NoteId == NoteId);
+                var userId = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
+                int UserId = int.Parse(userId.Value);
+                var label = this.fundooContext.Label.FirstOrDefault(x => x.LabelId == LabelId && x.UserId == UserId);
                 if (label == null)
                 {
                     return this.BadRequest(new { sucess = false, Message = "Enter valid NoteId" });
                 }
 
-                bool result = await labelBL.UpdateLable(NoteId, Labelname);
+                bool result = await this.labelBL.UpdateLable(UserId, LabelId, Labelname);
                 if (result)
                 {
                     return this.Ok(new { sucess = true, Message = "Updated Label Successfully! " });
                 }
 
                 return this.BadRequest(new { sucess = false, Message = "Entered Label Name already exsists!!" });
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError(ex.Message);
+                throw ex;
+            }
+        }
+
+        [HttpDelete("DeleteLabel/{LabelId}")]
+        public async Task<IActionResult> DeleteLabel(int LabelId)
+        {
+            try
+            {
+                var userId = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
+                int UserId = int.Parse(userId.Value);
+                bool result = await this.labelBL.DeleteLabel(UserId,LabelId);
+                if (result)
+                {
+                    return this.Ok(new { sucess = true, Message = "Deleted SuccessFully !! " });
+                }
+
+                return this.BadRequest(new { sucess = false, Message = "Enter Valid Label Id !!" });
             }
             catch (Exception ex)
             {

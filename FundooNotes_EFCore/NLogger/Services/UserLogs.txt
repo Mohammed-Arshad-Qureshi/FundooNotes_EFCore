@@ -97,3 +97,22 @@
 2022-07-21 17:55:05.0008|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
 2022-07-21 18:06:40.5971|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
 2022-07-21 18:07:59.6961|INFO|NLogger.Services.LoggerManager|Enterd invalid Note Id 10
+2022-07-21 18:33:45.4397|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-21 18:36:40.6358|INFO|NLogger.Services.LoggerManager|User cred Email : rehan@gmail.com
+2022-07-21 18:53:08.2493|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-21 18:56:40.6238|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
+2022-07-21 19:00:22.9370|INFO|NLogger.Services.LoggerManager|User cred Email : arshasd@gmail.com
+2022-07-21 19:00:30.8918|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-21 19:01:25.1620|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
+2022-07-21 19:10:04.2400|INFO|NLogger.Services.LoggerManager|No Notes Exists At Moment!! UserId = 2
+2022-07-21 19:10:28.3268|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 2
+2022-07-21 19:10:58.0948|INFO|NLogger.Services.LoggerManager|Enterd invalid Note Id 8
+2022-07-21 19:11:08.9937|INFO|NLogger.Services.LoggerManager|Label Cread Successfully with noted id = 7
+2022-07-21 19:11:56.9864|INFO|NLogger.Services.LoggerManager|Label Cread Successfully with noted id = 7
+2022-07-21 19:22:41.3138|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-21 19:22:55.1118|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
+2022-07-21 19:30:09.0488|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
+2022-07-21 19:34:16.3791|INFO|NLogger.Services.LoggerManager|User cred Email : salaman@gmail.com
+2022-07-21 19:34:25.2595|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
+2022-07-21 19:43:23.4442|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
+2022-07-21 19:50:17.8292|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
