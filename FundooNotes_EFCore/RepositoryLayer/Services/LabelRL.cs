@@ -101,5 +101,25 @@ namespace RepositoryLayer.Services
                 throw ex;
             }
         }
+
+        public async Task<bool> UpdateLable(int NoteId,string Labelname)
+        {
+            try
+            {
+                var label = this.fundooContext.Label.FirstOrDefault(x => x.NoteId == NoteId && x.LabelName != Labelname);
+                if (label != null)
+                {
+                    label.LabelName = Labelname;
+                    this.fundooContext.SaveChanges();
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

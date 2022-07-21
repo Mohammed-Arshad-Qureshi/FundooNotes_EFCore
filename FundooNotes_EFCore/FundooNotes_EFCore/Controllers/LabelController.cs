@@ -26,7 +26,7 @@ namespace FundooNotes_EFCore.Controllers
             this.logger = logger;
         }
 
-        [HttpPost("AddLabel")]
+        [HttpPost("AddLabel/{NoteId}/{Labelname}")]
         public async Task<IActionResult> AddNote(int NoteId, string Labelname)
         {
 
@@ -35,21 +35,14 @@ namespace FundooNotes_EFCore.Controllers
                 var userId = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
                 int UserId = int.Parse(userId.Value);
                 var note = this.fundooContext.Notes.FirstOrDefault(x => x.NoteId == NoteId);
+                var label = this.fundooContext.Label.FirstOrDefault(x => x.LabelName == Labelname);
 
                 if (note == null || note.IsTrash == true)
                 {
                     this.logger.LogInfo($"Enterd invalid Note Id {NoteId}");
-                    return this.BadRequest(new { success = false, Message = "Note Not Found Enter valid NoteId" });
+                    return this.BadRequest(new { success = false, Message = "Enter valid NoteId" });
                 }
 
-                if (Labelname == string.Empty || Labelname == "string")
-                {
-                    this.logger.LogInfo($"Enterd the default values {NoteId}");
-                    return this.BadRequest(new { success = false, Message = "Enter Valid Data" });
-
-                }
-
-                var label = this.fundooContext.Label.FirstOrDefault(x => x.LabelName == Labelname);
                 if (label == null)
                 {
                     await this.labelBL.AddLabel(UserId, NoteId, Labelname);
@@ -91,9 +84,39 @@ namespace FundooNotes_EFCore.Controllers
             {
                 var userId = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
                 int UserId = int.Parse(userId.Value);
-                var result = await labelBL.GetLabelByNoteId(UserId,NoteId);
-                return this.Ok(new { sucess = true, Message = "Fetch all labels", data = result });
+                var result = await labelBL.GetLabelByNoteId(UserId, NoteId);
+                if (result != null)
+                {
+                    return this.Ok(new { sucess = true, Message = "Fetch all labels", data = result });
+                }
+                return this.BadRequest(new { sucess = false, Message = "Enter valid NoteId" });
 
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError(ex.Message);
+                throw ex;
+            }
+        }
+
+        [HttpGet("UpdateLabel/{NoteId}/{Labelname}")]
+        public async Task<IActionResult> GetAllLabels(int NoteId, string Labelname)
+        {
+            try
+            {
+                var label = this.fundooContext.Label.FirstOrDefault(x => x.NoteId == NoteId);
+                if (label == null)
+                {
+                    return this.BadRequest(new { sucess = false, Message = "Enter valid NoteId" });
+                }
+
+                bool result = await labelBL.UpdateLable(NoteId, Labelname);
+                if (result)
+                {
+                    return this.Ok(new { sucess = true, Message = "Updated Label Successfully! " });
+                }
+
+                return this.BadRequest(new { sucess = false, Message = "Entered Label Name already exsists!!" });
             }
             catch (Exception ex)
             {

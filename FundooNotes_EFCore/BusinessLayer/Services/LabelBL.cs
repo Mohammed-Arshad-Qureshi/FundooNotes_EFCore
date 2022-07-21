@@ -48,7 +48,20 @@ namespace BusinessLayer.Services
         {
             try
             {
-                return await this.labelRL.GetLabelByNoteId(UserId,NoteId);
+                return await this.labelRL.GetLabelByNoteId(UserId, NoteId);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public async Task<bool> UpdateLable(int NoteId, string Labelname)
+        {
+            try
+            {
+                return await this.labelRL.UpdateLable(NoteId, Labelname);
             }
             catch (Exception ex)
             {

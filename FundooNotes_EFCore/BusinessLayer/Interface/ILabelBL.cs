@@ -13,5 +13,7 @@ namespace BusinessLayer.Interface
         Task<List<LabelModel>> GetAllLabels(int UserId);
 
         Task<List<LabelModel>> GetLabelByNoteId(int UserId, int NoteId);
+
+        Task<bool> UpdateLable(int NoteId, string Labelname);
     }
 }
