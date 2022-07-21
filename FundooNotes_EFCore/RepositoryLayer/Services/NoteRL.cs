@@ -46,12 +46,12 @@ namespace RepositoryLayer.Services
         {
             try
             {
-                return await this.fundooContext.Notes
-                .Where(n => n.UserId == UserId && n.IsTrash == false)
-                .Join(fundooContext.Users,
-                n => n.UserId,
+                return await this.fundooContext.Users
+                .Where(u => u.UserId == UserId)
+                .Join(fundooContext.Notes.Where(n => n.IsTrash == false),
                 u => u.UserId,
-                (n, u) => new NoteResponseModel
+                n => n.UserId,
+                (u, n) => new NoteResponseModel
                 {
                     NoteId = n.NoteId,
                     UserId = n.UserId,
@@ -106,19 +106,20 @@ namespace RepositoryLayer.Services
 
         public async Task<bool> DeleteNote(int userId, int noteId)
         {
-            var flag = false;
             try
             {
-                var result = this.fundooContext.Notes.Where(x => x.NoteId == noteId && x.UserId == userId).FirstOrDefault();
-                if(result != null)
+                var flag = false;
+                var note = this.fundooContext.Notes.Where(x => x.NoteId == noteId && x.UserId == userId).FirstOrDefault();
+                if(note != null && note.IsTrash == false)
                 {
                     flag = true;
-                    result.IsTrash = true;
-                    this.fundooContext.Notes.Update(result);
-                    await this.fundooContext.SaveChangesAsync();
-                    return await Task.FromResult(flag);
+                    note.IsTrash = true;
                 }
-
+                else
+                {
+                    note.IsTrash = false;
+                }
+                await this.fundooContext.SaveChangesAsync();
                 return await Task.FromResult(flag);
             }
             catch (Exception ex)
@@ -146,7 +147,6 @@ namespace RepositoryLayer.Services
                         flag = false;
                     }
 
-                    this.fundooContext.Notes.Update(note);
                     await this.fundooContext.SaveChangesAsync();
                     return await Task.FromResult(flag);
                 }

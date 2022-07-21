@@ -88,7 +88,7 @@ namespace FundooNotes_EFCore.Controllers
                     return this.BadRequest(new { sucess = false, Message = $"No Note Found for NodeId : {NoteId}" });
                 }
 
-                if ((updateModel.Title == string.Empty) || (updateModel.Title == "string" && updateModel.Description == "string" && updateModel.Bgcolor == "string") && (updateModel.IsTrash == true))
+                if ((updateModel.Title == string.Empty) || (updateModel.Title == "string" && updateModel.Description == "string" && updateModel.Bgcolor == "string") || (updateModel.IsTrash == true))
                 {
                     return this.BadRequest(new { sucess = false, Message = "Enter Valid Data" });
                 }
@@ -109,8 +109,8 @@ namespace FundooNotes_EFCore.Controllers
             }
         }
 
-        [HttpDelete("DeleteNote/{noteId}")]
-        public async Task<IActionResult> GetAllNotes(int noteId)
+        [HttpDelete("TrashNote/{noteId}")]
+        public async Task<IActionResult> TrashNote(int noteId)
         {
             try
             {
@@ -126,7 +126,7 @@ namespace FundooNotes_EFCore.Controllers
                     return this.Ok(new { sucess = true, Message = "Notes Deleted successfully..." });
                 }
 
-                return this.BadRequest(new { sucess = true, Message = $"Note Restored Successfully : {noteId}" });
+                return this.BadRequest(new { sucess = true, Message = $"Note : {noteId} Restored Successfully" });
 
             }
             catch (Exception ex)
@@ -195,7 +195,7 @@ namespace FundooNotes_EFCore.Controllers
             }
         }
 
-        [HttpPut("Remainder/{NoteId}")]
+        [HttpPut("Remainder")]
         public async Task<IActionResult> Remainder(int NoteId, NoteRemainderModel remainderModel)
         {
             try
