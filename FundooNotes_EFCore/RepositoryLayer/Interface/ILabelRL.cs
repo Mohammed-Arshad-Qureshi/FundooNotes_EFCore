@@ -12,8 +12,5 @@ namespace RepositoryLayer.Interface
 
         Task<List<LabelModel>> GetAllLabels(int UserId);
 
-        Task<List<LabelModel>> GetAllLabelsById(int UserId,int NoteId);
-
-
     }
 }
