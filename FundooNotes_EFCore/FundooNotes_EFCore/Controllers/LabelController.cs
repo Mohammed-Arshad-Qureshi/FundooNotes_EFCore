@@ -99,8 +99,8 @@ namespace FundooNotes_EFCore.Controllers
             }
         }
 
-        [HttpGet("UpdateLabel/{NoteId}/{Labelname}")]
-        public async Task<IActionResult> GetAllLabels(int NoteId, string Labelname)
+        [HttpPut("UpdateLabel/{NoteId}/{Labelname}")]
+        public async Task<IActionResult> UpdatedLabel(int NoteId, string Labelname)
         {
             try
             {
