@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Interface;
+using DataBaseLayer.LabelModels;
 using RepositoryLayer.Interface;
 using RepositoryLayer.Services;
 using System;
@@ -22,6 +23,19 @@ namespace BusinessLayer.Services
             try
             {
                 await this.labelRL.AddLabel(UserId, NoteId, LabelName);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public async Task<List<LabelModel>> GetAllLabels(int UserId)
+        {
+            try
+            {
+                return await this.labelRL.GetAllLabels(UserId);
             }
             catch (Exception ex)
             {
