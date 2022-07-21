@@ -67,14 +67,14 @@ namespace FundooNotes_EFCore.Controllers
         }
 
         [HttpGet("GetAllLabels")]
-        public async Task<IActionResult> GetAllLabels(int NoteId)
+        public async Task<IActionResult> GetAllLabels()
         {
             try
             {
                 var userId = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
                 int UserId = int.Parse(userId.Value);
                 var result = await labelBL.GetAllLabels(UserId);
-                return this.Ok(new { sucess = true, Message = $"Get All Labels of Note : {NoteId}", data = result });
+                return this.Ok(new { sucess = true, Message = "Fetch all labels", data = result });
 
             }
             catch (Exception ex)
