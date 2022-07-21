@@ -83,5 +83,23 @@ namespace FundooNotes_EFCore.Controllers
                 throw ex;
             }
         }
+
+        [HttpGet("GetAllLabels/{NoteId}")]
+        public async Task<IActionResult> GetAllLabels(int NoteId)
+        {
+            try
+            {
+                var userId = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
+                int UserId = int.Parse(userId.Value);
+                var result = await labelBL.GetLabelByNoteId(UserId,NoteId);
+                return this.Ok(new { sucess = true, Message = "Fetch all labels", data = result });
+
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError(ex.Message);
+                throw ex;
+            }
+        }
     }
 }
