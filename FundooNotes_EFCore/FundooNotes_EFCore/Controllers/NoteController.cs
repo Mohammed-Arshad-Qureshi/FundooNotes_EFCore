@@ -3,10 +3,15 @@ using DataBaseLayer.NoteModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Caching.Memory;
+using Newtonsoft.Json;
 using NLogger.Interface;
 using RepositoryLayer.Services;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace FundooNotes_EFCore.Controllers
@@ -19,12 +24,17 @@ namespace FundooNotes_EFCore.Controllers
         private readonly FundooContext fundooContext;
         private readonly INoteBL noteBL;
         private readonly ILoggerManager logger;
+        private readonly IDistributedCache distributedCache;
+        private readonly IMemoryCache memoryCache;
 
-        public NoteController(FundooContext fundooContext, INoteBL noteBL, ILoggerManager logger)
+
+        public NoteController(FundooContext fundooContext, INoteBL noteBL, ILoggerManager logger, IDistributedCache distributedCache, IMemoryCache memoryCache)
         {
             this.fundooContext = fundooContext;
             this.noteBL = noteBL;
             this.logger = logger;
+            this.distributedCache = distributedCache;
+            this.memoryCache = memoryCache;
         }
 
 
@@ -225,5 +235,36 @@ namespace FundooNotes_EFCore.Controllers
             }
         }
 
+        [HttpGet("GetALlNotesByRedis")]
+        public async Task<IActionResult> GetALlNotesByRedis()
+        {
+            try
+            {
+                string CacheKey = "NoteList";
+                string SerializeNoteList;
+                var notelist = new List<NoteResponseModel>();
+                var redisnotelist = await distributedCache.GetAsync(CacheKey);
+                if (redisnotelist != null)
+                {
+                    SerializeNoteList = Encoding.UTF8.GetString(redisnotelist);
+                    notelist = JsonConvert.DeserializeObject<List<NoteResponseModel>>(SerializeNoteList);
+                }
+                else
+                {
+                    var userid = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("userId", StringComparison.InvariantCultureIgnoreCase));
+                    int userId = int.Parse(userid.Value);
+                    notelist = await this.noteBL.GetAllNote(userId);
+                    SerializeNoteList = JsonConvert.SerializeObject(notelist);
+                    redisnotelist = Encoding.UTF8.GetBytes(SerializeNoteList);
+                    var option = new DistributedCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(20)).SetAbsoluteExpiration(TimeSpan.FromHours(6));
+                    await distributedCache.SetAsync(CacheKey, redisnotelist, option);
+                }
+                return this.Ok(new { success = true, message = $"Get Note Successfull", data = notelist });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

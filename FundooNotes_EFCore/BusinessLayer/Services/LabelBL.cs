@@ -11,7 +11,7 @@ namespace BusinessLayer.Services
 {
     public class LabelBL : ILabelBL
     {
-        ILabelRL labelRL;
+       ILabelRL labelRL;
 
         public LabelBL(ILabelRL labelRL)
         {

@@ -55,8 +55,7 @@ namespace FundooNotes_EFCore.Controllers
         {
             try
             {
-                List<User> getusers = new List<User>();
-                getusers = this.userBL.GetAllUsers();
+                var getusers = this.userBL.GetAllUsers();
                 if(getusers.Count <= 0)
                 {
                     return this.BadRequest(new { success = false, message = "Currently No users are present" });
@@ -134,7 +133,5 @@ namespace FundooNotes_EFCore.Controllers
                 throw ex;
             }
         }
-
-
     }
 }

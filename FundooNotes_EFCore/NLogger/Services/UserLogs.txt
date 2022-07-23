@@ -116,3 +116,15 @@
 2022-07-21 19:34:25.2595|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
 2022-07-21 19:43:23.4442|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
 2022-07-21 19:50:17.8292|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
+2022-07-22 07:24:43.8132|INFO|NLogger.Services.LoggerManager|User Registerd Email : arman@gmail.com
+2022-07-22 08:25:24.9293|INFO|NLogger.Services.LoggerManager|User Registerd Email : suresh@gmail.com
+2022-07-22 08:46:50.5740|INFO|NLogger.Services.LoggerManager|User cred Email : rehan@gmail.com
+2022-07-22 13:08:14.6701|INFO|NLogger.Services.LoggerManager|User cred Email : rehan@gmail.com
+2022-07-22 13:09:01.3765|INFO|NLogger.Services.LoggerManager|User cred Email : Arshad@gmail.com
+2022-07-22 13:09:05.5644|INFO|NLogger.Services.LoggerManager|User cred Email : Arshad@gmail.com
+2022-07-22 13:09:18.6010|INFO|NLogger.Services.LoggerManager|User cred Email : Arshad@gmail.com
+2022-07-22 13:09:23.4414|INFO|NLogger.Services.LoggerManager|User cred Email : Arshad@gmail.com
+2022-07-22 13:09:45.8193|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-22 14:25:57.7847|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-22 14:52:38.2905|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-22 15:05:52.0277|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com

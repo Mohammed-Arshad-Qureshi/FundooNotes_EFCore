@@ -3,10 +3,15 @@ using DataBaseLayer.LabelModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Caching.Memory;
+using Newtonsoft.Json;
 using NLogger.Interface;
 using RepositoryLayer.Services;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace FundooNotes_EFCore.Controllers
@@ -19,12 +24,16 @@ namespace FundooNotes_EFCore.Controllers
         private readonly FundooContext fundooContext;
         private readonly ILabelBL labelBL;
         private readonly ILoggerManager logger;
+        private readonly IDistributedCache distributedCache;
+        private readonly IMemoryCache memoryCache;
 
-        public LabelController(FundooContext fundooContext, ILabelBL labelBL, ILoggerManager logger)
+        public LabelController(FundooContext fundooContext, ILabelBL labelBL, ILoggerManager logger, IDistributedCache distributedCache, IMemoryCache memoryCache)
         {
             this.fundooContext = fundooContext;
             this.labelBL = labelBL;
             this.logger = logger;
+            this.distributedCache = distributedCache;
+            this.memoryCache = memoryCache;
         }
 
         [HttpPost("AddLabel/{NoteId}/{Labelname}")]
@@ -114,7 +123,7 @@ namespace FundooNotes_EFCore.Controllers
                 var label = this.fundooContext.Label.FirstOrDefault(x => x.LabelId == LabelId && x.UserId == UserId);
                 if (label == null)
                 {
-                    return this.BadRequest(new { sucess = false, Message = "Enter valid NoteId" });
+                    return this.BadRequest(new { sucess = false, Message = "Enter valid LabelId" });
                 }
 
                 bool result = await this.labelBL.UpdateLable(UserId, LabelId, Labelname);
@@ -139,7 +148,7 @@ namespace FundooNotes_EFCore.Controllers
             {
                 var userId = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
                 int UserId = int.Parse(userId.Value);
-                bool result = await this.labelBL.DeleteLabel(UserId,LabelId);
+                bool result = await this.labelBL.DeleteLabel(UserId, LabelId);
                 if (result)
                 {
                     return this.Ok(new { sucess = true, Message = "Deleted SuccessFully !! " });
@@ -150,6 +159,38 @@ namespace FundooNotes_EFCore.Controllers
             catch (Exception ex)
             {
                 this.logger.LogError(ex.Message);
+                throw ex;
+            }
+        }
+
+        [HttpGet("GetAllLabelsRedis")]
+        public async Task<IActionResult> GetAllLabelsRedis()
+        {
+            try
+            {
+                string CacheKey = "NoteList";
+                string SerializeNoteList;
+                var notelist = new List<LabelModel>();
+                var redisnotelist = await distributedCache.GetAsync(CacheKey);
+                if (redisnotelist != null)
+                {
+                    SerializeNoteList = Encoding.UTF8.GetString(redisnotelist);
+                    notelist = JsonConvert.DeserializeObject<List<LabelModel>>(SerializeNoteList);
+                }
+                else
+                {
+                    var userid = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("userId", StringComparison.InvariantCultureIgnoreCase));
+                    int userId = int.Parse(userid.Value);
+                    notelist = await this.labelBL.GetAllLabels(userId);
+                    SerializeNoteList = JsonConvert.SerializeObject(notelist);
+                    redisnotelist = Encoding.UTF8.GetBytes(SerializeNoteList);
+                    var option = new DistributedCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(20)).SetAbsoluteExpiration(TimeSpan.FromHours(6));
+                    await distributedCache.SetAsync(CacheKey, redisnotelist, option);
+                }
+                return this.Ok(new { success = true, message = $"Get Note Successfull", data = notelist });
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }
