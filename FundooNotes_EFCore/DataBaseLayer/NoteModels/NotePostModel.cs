@@ -13,7 +13,7 @@ namespace DataBaseLayer.NoteModels
         [Required]
         public string Description { get; set; }
 
-        [Required]
         public string Bgcolor { get; set; }
     }
+
 }

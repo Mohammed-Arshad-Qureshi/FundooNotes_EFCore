@@ -128,3 +128,205 @@
 2022-07-22 14:25:57.7847|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
 2022-07-22 14:52:38.2905|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
 2022-07-22 15:05:52.0277|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-23 11:15:01.8422|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-23 11:15:41.5633|ERROR|NLogger.Services.LoggerManager|User cred Failed : arshad@gmail.com
+2022-07-23 11:19:47.2328|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-23 11:42:52.2069|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-23 11:52:04.4902|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-23 11:58:56.0645|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-23 11:59:01.1761|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-23 12:26:14.6056|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-07-23 12:27:34.7680|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
+2022-08-05 13:15:27.0949|INFO|NLogger.Services.LoggerManager|User Registerd Email : Rehan@gmail.com
+2022-08-05 13:16:55.3250|ERROR|NLogger.Services.LoggerManager|User Registration Failed : Rehan@gmail.com
+2022-08-05 13:48:00.8171|INFO|NLogger.Services.LoggerManager|User Registerd Email : mushraf@gmail.com
+2022-08-05 14:41:55.7170|INFO|NLogger.Services.LoggerManager|User Registerd Email : yogi@gmail.com
+2022-08-05 17:25:46.2512|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-05 17:25:49.1638|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-05 17:26:23.5988|INFO|NLogger.Services.LoggerManager|User cred Email : arshadd@gmail.com
+2022-08-05 17:27:18.8600|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-05 18:57:25.0787|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-07 11:09:03.5860|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-07 11:09:18.1066|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-07 11:09:25.9032|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-07 11:31:20.5402|INFO|NLogger.Services.LoggerManager|User Registerd Email : shyam@gmail.com
+2022-08-07 11:32:24.3813|INFO|NLogger.Services.LoggerManager|User cred Email : shyam@gmail.com
+2022-08-11 11:18:44.3724|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-11 12:08:48.1903|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-11 12:41:53.0270|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-11 12:43:08.1685|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-11 12:50:29.9769|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-11 14:10:32.3054|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-11 14:13:05.2941|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-11 14:19:30.7938|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-11 14:23:35.7159|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-11 14:25:10.5091|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-11 14:28:08.4150|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-11 14:28:16.1874|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-11 18:16:04.5542|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-11 18:17:43.6003|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-11 18:43:47.1477|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-12 11:15:14.2710|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-12 11:16:01.7436|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-12 18:18:42.1660|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-12 18:19:09.8623|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-12 18:19:15.8431|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-12 18:19:22.7912|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-12 22:13:22.9451|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-13 09:06:46.9632|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-13 09:06:47.8042|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-13 10:22:27.0548|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-13 10:22:57.0483|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-13 10:36:05.1651|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-13 10:36:08.9643|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-13 11:06:25.8166|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-13 11:36:04.8502|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-14 21:17:36.2405|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-14 21:17:55.4771|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-14 21:58:36.9026|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-14 22:08:31.3572|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-14 22:12:26.7451|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-14 22:14:05.4103|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-14 22:20:47.4559|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
+2022-08-14 22:50:36.4335|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-14 22:59:27.4848|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
+2022-08-14 23:10:35.1849|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
+2022-08-15 10:00:25.9073|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-15 10:47:10.4722|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
+2022-08-15 11:38:38.4681|INFO|NLogger.Services.LoggerManager|User cred Email : rehan@gmail.com
+2022-08-15 11:38:40.1947|INFO|NLogger.Services.LoggerManager|User cred Email : rehan@gmail.com
+2022-08-15 12:03:05.1593|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-15 12:03:06.5918|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-15 14:10:25.8574|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-15 15:16:54.0840|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-15 15:33:16.3153|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-15 16:21:45.6050|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-15 16:49:57.7242|INFO|NLogger.Services.LoggerManager|User Registerd Email : arvind@gmail.com
+2022-08-15 16:52:26.5117|INFO|NLogger.Services.LoggerManager|User Registerd Email : yaswanth@gmail.com
+2022-08-15 16:53:44.7331|INFO|NLogger.Services.LoggerManager|User Registerd Email : maseha@gmail.com
+2022-08-15 16:54:56.4981|INFO|NLogger.Services.LoggerManager|User Registerd Email : maseha123@gmail.com
+2022-08-15 17:02:28.3728|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-15 17:06:23.7056|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-15 18:51:46.8631|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-15 18:53:43.2686|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
+2022-08-15 18:56:17.4386|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
+2022-08-15 19:01:09.8925|INFO|NLogger.Services.LoggerManager|User cred Email : salman@gmail.com
+2022-08-15 19:10:45.7698|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 2
+2022-08-15 19:15:21.2565|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-15 19:17:35.5342|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-15 19:18:54.5357|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-15 19:22:44.9241|INFO|NLogger.Services.LoggerManager|User cred Email : aerhfhgf@gmail.com
+2022-08-15 19:22:48.6062|INFO|NLogger.Services.LoggerManager|User cred Email : aerhfhgf@gmail.com
+2022-08-15 19:22:48.7059|INFO|NLogger.Services.LoggerManager|User cred Email : aerhfhgf@gmail.com
+2022-08-15 19:22:49.7602|INFO|NLogger.Services.LoggerManager|User cred Email : aerhfhgf@gmail.com
+2022-08-15 19:22:49.8699|INFO|NLogger.Services.LoggerManager|User cred Email : aerhfhgf@gmail.com
+2022-08-15 19:22:50.1167|INFO|NLogger.Services.LoggerManager|User cred Email : aerhfhgf@gmail.com
+2022-08-15 19:22:54.8988|INFO|NLogger.Services.LoggerManager|User cred Email : aerhfhgf@gmail.com
+2022-08-15 19:22:55.0002|INFO|NLogger.Services.LoggerManager|User cred Email : aerhfhgf@gmail.com
+2022-08-15 19:22:55.2813|INFO|NLogger.Services.LoggerManager|User cred Email : aerhfhgf@gmail.com
+2022-08-15 19:46:39.4275|INFO|NLogger.Services.LoggerManager|User cred Email : aerhfhgf@gmail.com
+2022-08-15 19:46:58.4658|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-15 20:19:23.1409|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-15 20:22:32.3225|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-15 20:22:50.9698|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-16 15:38:45.4905|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-16 16:00:12.6871|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-16 16:08:29.0261|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-16 17:37:13.3882|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-16 20:59:28.6525|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-16 20:59:28.6525|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-16 21:07:08.7483|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-16 21:07:44.3348|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-16 23:09:13.5958|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-17 09:21:03.9225|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-17 12:02:18.6406|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-17 18:32:11.8039|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-17 18:32:18.9226|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-17 19:04:39.8766|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-17 21:22:04.9739|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-18 10:10:48.2330|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-18 15:06:42.6366|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-18 15:07:36.7894|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-18 15:07:38.6334|ERROR|NLogger.Services.LoggerManager|User cred Failed : arshad@gmail.com
+2022-08-18 15:12:03.1095|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-18 15:15:03.2864|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-18 15:15:22.6121|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-18 15:35:44.7247|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-18 15:35:45.6489|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-18 18:26:01.1200|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-19 10:06:11.9915|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-19 10:32:49.8530|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-19 10:53:16.1810|ERROR|NLogger.Services.LoggerManager|An error occurred while updating the entries. See the inner exception for details.
+2022-08-19 12:38:33.7507|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-19 12:40:59.4067|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-19 14:08:27.6628|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-19 16:27:58.1717|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-19 18:30:51.9623|ERROR|NLogger.Services.LoggerManager|An error occurred while updating the entries. See the inner exception for details.
+2022-08-19 18:30:54.7460|ERROR|NLogger.Services.LoggerManager|An error occurred while updating the entries. See the inner exception for details.
+2022-08-19 18:31:14.9519|ERROR|NLogger.Services.LoggerManager|An error occurred while updating the entries. See the inner exception for details.
+2022-08-19 18:41:43.6818|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-19 20:20:10.0488|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-19 20:20:10.0489|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-20 09:30:06.8129|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-20 09:31:41.1129|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-20 13:16:28.6921|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-20 13:16:35.8984|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-20 13:18:05.8794|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-20 13:18:15.8393|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-20 13:19:08.0618|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-20 13:58:36.4300|INFO|NLogger.Services.LoggerManager|Label Cread Successfully with noted id = 2016
+2022-08-20 13:59:00.8791|INFO|NLogger.Services.LoggerManager|Label Cread Successfully with noted id = 2016
+2022-08-20 15:19:11.6227|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-20 15:49:46.1249|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-20 16:16:06.8324|INFO|NLogger.Services.LoggerManager|Label Cread Successfully with noted id = 3016
+2022-08-20 17:03:19.1684|INFO|NLogger.Services.LoggerManager|Label Cread Successfully with noted id = 3016
+2022-08-22 09:42:16.3117|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-22 09:42:16.3117|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-22 09:44:05.5173|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-22 09:48:21.8803|INFO|NLogger.Services.LoggerManager|Label Cread Successfully with noted id = 3016
+2022-08-22 10:15:38.7319|INFO|NLogger.Services.LoggerManager|Label Cread Successfully with noted id = 3016
+2022-08-22 10:52:19.9739|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-22 11:32:25.5201|ERROR|NLogger.Services.LoggerManager|An error occurred while updating the entries. See the inner exception for details.
+2022-08-22 11:32:25.5201|ERROR|NLogger.Services.LoggerManager|An error occurred while updating the entries. See the inner exception for details.
+2022-08-22 11:32:26.4695|ERROR|NLogger.Services.LoggerManager|An error occurred while updating the entries. See the inner exception for details.
+2022-08-22 11:32:37.5647|ERROR|NLogger.Services.LoggerManager|An error occurred while updating the entries. See the inner exception for details.
+2022-08-22 11:33:00.6003|ERROR|NLogger.Services.LoggerManager|An error occurred while updating the entries. See the inner exception for details.
+2022-08-22 11:33:41.6892|ERROR|NLogger.Services.LoggerManager|An error occurred while updating the entries. See the inner exception for details.
+2022-08-22 12:12:13.6510|INFO|NLogger.Services.LoggerManager|Label Cread Successfully with noted id = 3016
+2022-08-22 13:42:08.9881|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-22 22:47:40.2103|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-23 07:57:13.9284|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-23 09:23:14.3589|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-23 10:00:07.6069|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-23 10:06:20.2820|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-23 10:08:28.8828|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-23 10:12:08.9516|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-23 10:13:54.8203|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-23 10:19:08.8379|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-23 11:47:15.4892|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-23 12:07:11.3516|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId = UserId: 1
+2022-08-23 17:58:27.9480|INFO|NLogger.Services.LoggerManager|User Registerd Email : gopal@gmail.com
+2022-08-23 17:58:27.9481|INFO|NLogger.Services.LoggerManager|User Registerd Email : gopal@gmail.com
+2022-08-23 17:58:37.0944|ERROR|NLogger.Services.LoggerManager|User Registration Failed : gopal@gmail.com
+2022-08-23 18:20:47.5097|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-23 18:30:35.5037|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-23 18:36:45.1749|INFO|NLogger.Services.LoggerManager|User cred Email : arshda@gmail.com
+2022-08-23 18:36:48.4917|INFO|NLogger.Services.LoggerManager|User cred Email : arshda@gmail.com
+2022-08-23 18:36:56.1747|INFO|NLogger.Services.LoggerManager|User cred Email : arshda@gmail.com
+2022-08-23 18:37:10.3497|INFO|NLogger.Services.LoggerManager|User cred Email : arshda@gmail.com
+2022-08-23 18:38:10.0715|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-23 18:52:09.0373|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-24 09:46:08.9153|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-24 10:37:03.9291|INFO|NLogger.Services.LoggerManager|Label Cread Successfully with noted id = 3022
+2022-08-24 11:19:58.7888|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-24 11:37:20.5758|INFO|NLogger.Services.LoggerManager|Label Cread Successfully with noted id = 3022
+2022-08-24 19:31:13.9380|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-25 09:22:18.3318|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-25 11:11:12.7038|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-25 11:33:57.0629|INFO|NLogger.Services.LoggerManager|Label Cread Successfully with noted id = 3023
+2022-08-25 14:15:40.1648|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-26 12:31:00.6533|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-26 12:31:44.7311|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-26 16:06:02.5208|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-26 16:06:48.7939|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com
+2022-08-27 12:16:18.4799|INFO|NLogger.Services.LoggerManager|User cred Email : arshad@gmail.com

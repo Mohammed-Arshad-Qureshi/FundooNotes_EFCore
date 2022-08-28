@@ -84,6 +84,18 @@ namespace FundooNotes_EFCore
                     { jwtSecurityScheme, Array.Empty<string>() },
                });
                });
+
+            services.AddCors(options =>
+            {
+
+                options.AddPolicy(
+                name: "AllowOrigin",
+                builder =>
+                {
+                  builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                });
+            });
+
             services.AddSingleton<ILoggerManager, LoggerManager>();
             services.AddTransient<IUserRL, UserRL>();
             services.AddTransient<IUserBL, UserBL>();
@@ -106,10 +118,10 @@ namespace FundooNotes_EFCore
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors("AllowOrigin");
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseSwagger();

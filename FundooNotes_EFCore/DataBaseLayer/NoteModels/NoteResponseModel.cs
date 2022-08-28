@@ -14,6 +14,10 @@ namespace DataBaseLayer.NoteModels
 
         public string Bgcolor { get; set; }
 
+        public bool IsTrash { get; set; }
+
+        public bool IsArchive { get; set; }
+
         public int UserId { get; set; }
 
         public string Firstname { get; set; }
@@ -23,5 +27,6 @@ namespace DataBaseLayer.NoteModels
         public string Email { get; set; }
 
         public DateTime CreatedDate { get; set; }
+
     }
 }

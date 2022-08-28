@@ -63,7 +63,7 @@ namespace FundooNotes_EFCore.Controllers
 
         }
 
-        [HttpGet("GetALlNotes")]
+        [HttpGet("GetAllNotes")]
         public async Task<IActionResult> GetAllNotes()
         {
             try
@@ -85,7 +85,7 @@ namespace FundooNotes_EFCore.Controllers
             }
         }
 
-        [HttpPut("UpdateNote")]
+        [HttpPut("UpdateNote/{NoteId}")]
         public async Task<IActionResult> UpdateNote(int NoteId, NoteUpdateModel updateModel)
         {
             try
@@ -109,7 +109,7 @@ namespace FundooNotes_EFCore.Controllers
                     return this.Ok(new { sucess = true, Message = "Note Updated Success Fully!!" });
                 }
 
-                return this.BadRequest(new { sucess = false, Message = $"No Note Found for NodeId : {NoteId}" });
+                return this.BadRequest(new { sucess = false, Message = $"No Note Found fo  r NodeId : {NoteId}" });
 
             }
             catch (Exception ex)
@@ -128,7 +128,9 @@ namespace FundooNotes_EFCore.Controllers
                 int UserId = int.Parse(userId.Value);
                 var check = this.fundooContext.Notes.Where(x => x.NoteId == noteId && x.UserId == UserId).FirstOrDefault();
                 if(check == null)
+                {
                     return this.BadRequest(new { sucess = false, Message = $"Note Not Found" });
+                }
 
                 bool result = await this.noteBL.DeleteNote(UserId, noteId);
                 if (result)
@@ -136,7 +138,7 @@ namespace FundooNotes_EFCore.Controllers
                     return this.Ok(new { sucess = true, Message = "Notes Deleted successfully..." });
                 }
 
-                return this.BadRequest(new { sucess = true, Message = $"Note : {noteId} Restored Successfully" });
+                return this.Ok(new { sucess = true, Message = $"Note : {noteId} Restored Successfully" });
 
             }
             catch (Exception ex)
@@ -146,22 +148,46 @@ namespace FundooNotes_EFCore.Controllers
             }
         }
 
-
-        [HttpPut("ArchiveNote/{NoteId}")]
-        public async Task<IActionResult> ArchiveNote(int NoteId)
+        [HttpDelete("DeleteNote/{noteId}")]
+        public async Task<IActionResult> DeleteNote(int noteId)
         {
             try
             {
                 var userId = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
                 int UserId = int.Parse(userId.Value);
-                var res = this.fundooContext.Notes.Where(x => x.NoteId == NoteId).FirstOrDefault();
+                var check = this.fundooContext.Notes.Where(x => x.NoteId == noteId && x.UserId == UserId).FirstOrDefault();
+                if (check == null)
+                {
+                    return this.BadRequest(new { sucess = false, Message = $"Note Not Found" });
+                }
+
+                await this.noteBL.NoteDeleteforever(UserId, noteId);
+                return this.Ok(new { sucess = true, Message = "Notes Deleted successfully..." });
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError(ex.Message);
+                throw ex;
+            }
+        }
+
+
+
+        [HttpDelete("ArchiveNote/{noteId}")]
+        public async Task<IActionResult> ArchiveNote(int noteId)
+        {
+            try
+            {
+                var userId = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
+                int UserId = int.Parse(userId.Value);
+                var res = this.fundooContext.Notes.Where(x => x.NoteId == noteId && x.IsTrash == false).FirstOrDefault();
                 if (res == null)
                 {
                     return this.BadRequest(new { sucess = false, Message = "Note not Found" });
 
                 }
 
-                bool result = await this.noteBL.ArchiveNote(UserId, NoteId);
+                bool result = await this.noteBL.ArchiveNote(UserId, noteId);
                 if (result == true)
                 {
                     return this.Ok(new { sucess = true, Message = "Note Archive SuccessFully !!" });
@@ -176,21 +202,21 @@ namespace FundooNotes_EFCore.Controllers
         }
 
 
-        [HttpPut("PinNote/{NoteId}")]
-        public async Task<IActionResult> PinNote(int NoteId)
+        [HttpPut("PinNote/{noteId}")]
+        public async Task<IActionResult> PinNote(int noteId)
         {
             try
             {
                 var userId = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
                 int UserId = int.Parse(userId.Value);
-                var res = this.fundooContext.Notes.Where(x => x.NoteId == NoteId).FirstOrDefault();
+                var res = this.fundooContext.Notes.Where(x => x.NoteId == noteId).FirstOrDefault();
                 if (res == null)
                 {
                     return this.BadRequest(new { sucess = false, Message = "Note not Found" });
 
                 }
 
-                bool result = await this.noteBL.PinNote(UserId, NoteId);
+                bool result = await this.noteBL.PinNote(UserId, noteId);
                 if (result == true)
                 {
                     return this.Ok(new { sucess = true, Message = "Note Pin SuccessFully !!" });
@@ -263,6 +289,58 @@ namespace FundooNotes_EFCore.Controllers
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
+
+        [HttpGet("GetALlColors/{NoteId}")]
+        public async Task<IActionResult> GetAllColors(int NoteId)
+        {
+            try
+            {
+                var userId = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
+                int UserId = int.Parse(userId.Value);
+                var NoteData = this.noteBL.GetAllColors(UserId, NoteId);
+                if (NoteData.Count == 0)
+                {
+                    this.logger.LogInfo($"No Notes Exists At Moment!! UserId = {UserId}");
+                    return this.BadRequest(new { sucess = false, Message = "color Added successfully" });
+                }
+
+                return this.Ok(new { sucess = true, Message = "All background colors", data = NoteData });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        [HttpPut("UpdateColor/{NoteId}")]
+        public async Task<IActionResult> UpdateColor(int NoteId, NoteColorModel color)
+        {
+            try
+            {
+                var userId = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
+                int UserId = int.Parse(userId.Value);
+                var check = this.fundooContext.Notes.Where(x => x.NoteId == NoteId).FirstOrDefault();
+                if (check == null || check.IsTrash == true)
+                {
+                    return this.BadRequest(new { sucess = false, Message = $"No Note Found for NodeId : {NoteId}" });
+                }
+
+                bool result = await this.noteBL.UpdateColor(UserId, NoteId, color);
+                if (result == true)
+                {
+                    return this.Ok(new { sucess = true, Message = "Note color changed Success Fully!!" });
+                }
+
+                return this.BadRequest(new { sucess = false, Message = $"No Note Found for NodeId : {NoteId}" });
+
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError(ex.Message);
                 throw ex;
             }
         }

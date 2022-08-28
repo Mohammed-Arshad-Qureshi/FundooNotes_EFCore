@@ -111,7 +111,7 @@ namespace RepositoryLayer.Services
                 if (label != null && check == null)
                 {
                     label.LabelName = Labelname;
-                    this.fundooContext.SaveChanges();
+                    await this.fundooContext.SaveChangesAsync();
                     return true;
                 }
 
@@ -131,7 +131,7 @@ namespace RepositoryLayer.Services
                 if (label != null)
                 {
                     this.fundooContext.Remove(label);
-                    this.fundooContext.SaveChanges();
+                    await this.fundooContext.SaveChangesAsync();
                     return true;
                 }
 
@@ -139,6 +139,36 @@ namespace RepositoryLayer.Services
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
+
+        public async Task<LabelModel> GetAllLabelByID(int UserId, int LabelId)
+        {
+            try
+            {
+                var result = await (from user in this.fundooContext.Users
+                                    join notes in this.fundooContext.Notes on user.UserId equals UserId
+                                    join labels in this.fundooContext.Label on notes.UserId equals UserId
+                                    where labels.LabelId == LabelId && labels.UserId == UserId
+                                    select new LabelModel
+                                    {
+                                        LabelId = labels.LabelId,
+                                        UserId = UserId,
+                                        NoteId = notes.NoteId,
+                                        Title = notes.Title,
+                                        FirstName = user.FirstName,
+                                        LastName = user.LastName,
+                                        Email = user.Email,
+                                        Description = notes.Description,
+                                        LabelName = labels.LabelName,
+                                    }).FirstOrDefaultAsync();
+                return result;
+
+            }
+            catch (Exception ex)
+            {
+
                 throw ex;
             }
         }

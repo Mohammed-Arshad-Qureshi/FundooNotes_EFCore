@@ -32,7 +32,7 @@ namespace RepositoryLayer.Services
                 user.FirstName = userModel.FirstName;
                 user.LastName = userModel.LastName;
                 user.Email = userModel.Email;
-                user.password = userModel.Password;
+                user.password = userModel.Password; 
                 user.CreatedDate = DateTime.Now;
                 user.ModifiedDate = DateTime.Now;
                 this.fundooContext.Users.Add(user);

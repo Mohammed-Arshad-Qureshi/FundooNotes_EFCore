@@ -36,8 +36,8 @@ namespace FundooNotes_EFCore.Controllers
             this.memoryCache = memoryCache;
         }
 
-        [HttpPost("AddLabel/{NoteId}/{Labelname}")]
-        public async Task<IActionResult> AddLabel(int NoteId, string Labelname)
+        [HttpPost("AddLabel/{NoteId}")]
+        public async Task<IActionResult> AddLabel(int NoteId, LabelPostModel labelmodel)
         {
 
             try
@@ -45,7 +45,7 @@ namespace FundooNotes_EFCore.Controllers
                 var userId = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
                 int UserId = int.Parse(userId.Value);
                 var note = this.fundooContext.Notes.FirstOrDefault(x => x.NoteId == NoteId);
-                var label = this.fundooContext.Label.FirstOrDefault(x => x.LabelName == Labelname);
+                var label = this.fundooContext.Label.FirstOrDefault(x => x.LabelName == labelmodel.Labelname);
 
                 if (note == null || note.IsTrash == true)
                 {
@@ -55,7 +55,7 @@ namespace FundooNotes_EFCore.Controllers
 
                 if (label == null)
                 {
-                    await this.labelBL.AddLabel(UserId, NoteId, Labelname);
+                    await this.labelBL.AddLabel(UserId, NoteId, labelmodel.Labelname);
                     this.logger.LogInfo($"Label Cread Successfully with noted id = {NoteId}");
                     return this.Ok(new { sucess = true, Message = "Label Created Successfully..." });
                 }
@@ -91,7 +91,7 @@ namespace FundooNotes_EFCore.Controllers
             }
         }
 
-        [HttpGet("GetAllLabels/{NoteId}")]
+        [HttpGet("GetAllLabelsByNote/{NoteId}")]
         public async Task<IActionResult> GetAllLabelsByNote(int NoteId)
         {
             try
@@ -104,6 +104,28 @@ namespace FundooNotes_EFCore.Controllers
                     return this.Ok(new { sucess = true, Message = "Fetch all labels", data = result });
                 }
                 return this.BadRequest(new { sucess = false, Message = "No Labels Found" });
+
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError(ex.Message);
+                throw ex;
+            }
+        }
+
+        [HttpGet("GetAllLabelsByLabel/{LabelId}")]
+        public async Task<IActionResult> GetAllLabelsByLabel(int LabelId)
+        {
+            try
+            {
+                var userId = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
+                int UserId = int.Parse(userId.Value);
+                var result = await this.labelBL.GetAllLabelByID(UserId, LabelId);
+                if (result != null)
+                {
+                    return this.Ok(new { sucess = true, Message = "Fetch all labels", data = result });
+                }
+                return this.BadRequest(new { sucess = false, Message = "Enter Valid Label Id" });
 
             }
             catch (Exception ex)

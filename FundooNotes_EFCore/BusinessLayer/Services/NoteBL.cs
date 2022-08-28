@@ -108,5 +108,43 @@ namespace BusinessLayer.Services
             }
         }
 
+        public async Task NoteDeleteforever(int userId, int noteId)
+        {
+            try
+            {
+                await this.noteRL.NoteDeleteforever(userId, noteId);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public List<string> GetAllColors(int userId, int noteId)
+        {
+            try
+            {
+                return this.noteRL.GetAllColors(userId, noteId);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public async Task<bool> UpdateColor(int userId, int noteId, NoteColorModel color)
+        {
+            try
+            {
+                return await this.noteRL.UpdateColor(userId, noteId,color);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

@@ -37,7 +37,7 @@ namespace FundooNotes_EFCore.Controllers
                 {
                     this.logger.LogInfo($"User Registerd Email : {userModel.Email}");
                     this.userBL.AddUser(userModel);
-                    return this.Ok(new { success = true, message = "User Created Successfully" });
+                    return this.Ok(new { success = true, message = "User Registered Successfully" });
                 }
 
                 return this.BadRequest(new { success = false, message = "Entered Details are similar to Default one" });

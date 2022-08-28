@@ -48,7 +48,7 @@ namespace RepositoryLayer.Services
             {
                 return await this.fundooContext.Users
                 .Where(u => u.UserId == UserId)
-                .Join(fundooContext.Notes.Where(n => n.IsTrash == false),
+                .Join(fundooContext.Notes,
                 u => u.UserId,
                 n => n.UserId,
                 (u, n) => new NoteResponseModel
@@ -58,6 +58,8 @@ namespace RepositoryLayer.Services
                     Title = n.Title,
                     Description = n.Description,
                     Bgcolor = n.Bgcolor,
+                    IsTrash = n.IsTrash,
+                    IsArchive = n.IsArchive,
                     Firstname = u.FirstName,
                     Lasttname = u.LastName,
                     Email = u.Email,
@@ -110,7 +112,7 @@ namespace RepositoryLayer.Services
             {
                 var flag = false;
                 var note = this.fundooContext.Notes.Where(x => x.NoteId == noteId && x.UserId == userId).FirstOrDefault();
-                if(note != null && note.IsTrash == false)
+                if (note != null && note.IsTrash == false)
                 {
                     flag = true;
                     note.IsTrash = true;
@@ -135,9 +137,9 @@ namespace RepositoryLayer.Services
             {
                 var flag = true;
                 var note = this.fundooContext.Notes.Where(x => x.UserId == userId && x.NoteId == noteId).FirstOrDefault();
-                if(note != null && note.IsTrash == false)
+                if (note != null && note.IsTrash == false)
                 {
-                    if(note.IsArchive == false)
+                    if (note.IsArchive == false)
                     {
                         note.IsArchive = true;
                     }
@@ -218,5 +220,63 @@ namespace RepositoryLayer.Services
             }
         }
 
+        public async Task NoteDeleteforever(int userId, int noteId)
+        {
+            try
+            {
+                var note = this.fundooContext.Notes.Where(x => x.NoteId == noteId && x.UserId == userId).FirstOrDefault();
+                this.fundooContext.Notes.Remove(note);
+                await this.fundooContext.SaveChangesAsync();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public List<string> GetAllColors(int userId, int noteId)
+        {
+           List<string> colors = new List<string>()
+           {
+               "#ffffff",
+               "#f28b82",
+               "#fbbc04",
+               "#fff475",
+               "#ccff90",
+               "#a7ffeb",
+               "#aecbfa",
+               "#d7aefb",
+               "#fdcfe8",
+           };
+           return colors;
+        }
+
+        public async Task<bool> UpdateColor(int userId, int noteId, NoteColorModel color)
+        {
+            try
+            {
+                var flag = true;
+                var result = this.fundooContext.Notes.Where(x => x.NoteId == noteId && x.UserId == userId).FirstOrDefault();
+
+                if (result == null || result.IsTrash == true)
+                {
+                    flag = false;
+                    return await Task.FromResult(flag);
+                }
+
+                result.Bgcolor = color.Bgcolor;
+                this.fundooContext.Notes.Update(result);
+                await this.fundooContext.SaveChangesAsync();
+                return await Task.FromResult(flag);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

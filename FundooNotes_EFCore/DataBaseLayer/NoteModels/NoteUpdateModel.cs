@@ -13,6 +13,7 @@ namespace DataBaseLayer.NoteModels
 
         public string Bgcolor { get; set; }
 
+        [DefaultValue("false")]
         public bool IsPin { get; set; }
 
         [DefaultValue("false")]
